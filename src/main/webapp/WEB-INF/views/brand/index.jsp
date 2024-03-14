@@ -51,7 +51,6 @@
                                         <td>${brand.name}</td>
                                         <td class="text-center">
                                             <a class="btn btn-sm btn-secondary" href="${pageContext.request.contextPath}/brands/${brand.id}" title="View"><i class="fa fa-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/brands/edit/${brand.id}" title="Edit"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-sm btn-danger" href="${pageContext.request.contextPath}/brands/delete/${brand.id}" title="Delete"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
