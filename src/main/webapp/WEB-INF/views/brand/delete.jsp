@@ -21,6 +21,25 @@
                                 <input readonly id="brand_name" name="name" class="form-control form-control-sm" value="${brand.name}" required maxlength="50" />
                             </div>
                             <div class="col-12">
+                                <h6>Brand's products</h6>
+                                <table class="table table-sm table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="brandProduct" items="${brandProducts}">
+                                            <tr>
+                                                <td>${brandProduct.name}</td>
+                                                <td class="text-right">${brandProduct.price}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-12">
                                 <a class="btn btn-sm btn-secondary" href="${ref}">Cancel</a>
                                 <button class="btn btn-sm btn-danger">Delete</button>
                             </div>

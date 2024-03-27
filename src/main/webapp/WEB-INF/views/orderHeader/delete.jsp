@@ -25,6 +25,26 @@
                                 <input readonly id="order_header_order_date" name="orderDate" class="form-control form-control-sm" value="${util.formatDate(orderHeader.orderDate)}" data-type="date" autocomplete="off" required />
                             </div>
                             <div class="col-12">
+                                <table class="table table-sm table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Product</th>
+                                            <th>Qty</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="orderHeaderOrderDetail" items="${orderHeaderOrderDetails}">
+                                            <tr>
+                                                <td class="text-center">${orderHeaderOrderDetail.id.no}</td>
+                                                <td>${orderHeaderOrderDetail.product.name}</td>
+                                                <td class="text-right">${orderHeaderOrderDetail.qty}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-12">
                                 <a class="btn btn-sm btn-secondary" href="${ref}">Cancel</a>
                                 <button class="btn btn-sm btn-danger">Delete</button>
                             </div>

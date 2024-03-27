@@ -26,8 +26,7 @@
                                     <thead>
                                         <tr>
                                             <th>Product Name</th>
-                                            <th>Product Price</th>
-                                            <th>Actions</th>
+                                            <th>Price</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -35,17 +34,10 @@
                                             <tr>
                                                 <td>${brandProduct.name}</td>
                                                 <td class="text-right">${brandProduct.price}</td>
-                                                <td class="text-center">
-                                                    <a class="btn btn-sm btn-secondary" href="${pageContext.request.contextPath}/products/${brandProduct.id}" title="View"><i class="fa fa-eye"></i></a>
-                                                    <a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/products/edit/${brandProduct.id}" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a class="btn btn-sm btn-danger" href="${pageContext.request.contextPath}/products/delete/${brandProduct.id}" title="Delete"><i class="fa fa-times"></i></a>
-                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
-                                <a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/products/create?product_brand_id=${brand.id}">Add</a>
-                                <hr />
                             </div>
                             <div class="col-12">
                                 <a class="btn btn-sm btn-secondary" href="${ref}">Back</a>

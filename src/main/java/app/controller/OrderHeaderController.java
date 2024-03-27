@@ -103,7 +103,9 @@ public class OrderHeaderController {
     @RequestMapping("/edit/{id}")
     public String Edit(@PathVariable Integer id, Model model) {
         OrderHeader orderHeader = em.find(OrderHeader.class, id);
+        List<OrderDetail> orderHeaderOrderDetails = em.createQuery("SELECT orderDetail FROM OrderHeader orderHeader join orderHeader.orderDetails orderDetail WHERE orderHeader.id = :id", OrderDetail.class).setParameter("id", id).getResultList();
         List<Customer> customers = em.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
+        model.addAttribute("orderHeaderOrderDetails", orderHeaderOrderDetails);
         model.addAttribute("customers", customers);
         model.addAttribute("orderHeader", orderHeader);
         model.addAttribute("ref", Util.getRef("/orderHeaders"));
@@ -113,7 +115,9 @@ public class OrderHeaderController {
     @RequestMapping(value="/edit", method=RequestMethod.POST)
     public String Update(@ModelAttribute("orderHeader") OrderHeader orderHeader, BindingResult result, Model model) { 
         if (result.hasErrors()) {
+            List<OrderDetail> orderHeaderOrderDetails = em.createQuery("SELECT orderDetail FROM OrderHeader orderHeader join orderHeader.orderDetails orderDetail WHERE orderHeader.id = :id", OrderDetail.class).setParameter("id", orderHeader.getId()).getResultList();
             List<Customer> customers = em.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
+            model.addAttribute("orderHeaderOrderDetails", orderHeaderOrderDetails);
             model.addAttribute("customers", customers);
             model.addAttribute("ref", Util.getRef("/orderHeaders"));
             return "orderHeader/edit";
@@ -128,6 +132,8 @@ public class OrderHeaderController {
     @RequestMapping("/delete/{id}")
     public String Delete(@PathVariable Integer id, Model model) {
         OrderHeader orderHeader = em.find(OrderHeader.class, id);
+        List<OrderDetail> orderHeaderOrderDetails = em.createQuery("SELECT orderDetail FROM OrderHeader orderHeader join orderHeader.orderDetails orderDetail WHERE orderHeader.id = :id", OrderDetail.class).setParameter("id", id).getResultList();
+        model.addAttribute("orderHeaderOrderDetails", orderHeaderOrderDetails);
         model.addAttribute("orderHeader", orderHeader);
         model.addAttribute("ref", Util.getRef("/orderHeaders"));
         return "orderHeader/delete";

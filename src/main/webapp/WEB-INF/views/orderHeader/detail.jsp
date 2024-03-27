@@ -31,7 +31,6 @@
                                             <th>No</th>
                                             <th>Product</th>
                                             <th>Qty</th>
-                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,16 +39,10 @@
                                                 <td class="text-center">${orderHeaderOrderDetail.id.no}</td>
                                                 <td>${orderHeaderOrderDetail.product.name}</td>
                                                 <td class="text-right">${orderHeaderOrderDetail.qty}</td>
-                                                <td class="text-center">
-                                                    <a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/orderDetails/edit/${orderHeaderOrderDetail.id.orderId}/${orderHeaderOrderDetail.id.no}" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a class="btn btn-sm btn-danger" href="${pageContext.request.contextPath}/orderDetails/delete/${orderHeaderOrderDetail.id.orderId}/${orderHeaderOrderDetail.id.no}" title="Delete"><i class="fa fa-times"></i></a>
-                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
-                                <a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/orderDetails/create?order_detail_order_id=${orderHeader.id}">Add</a>
-                                <hr />
                             </div>
                             <div class="col-12">
                                 <a class="btn btn-sm btn-secondary" href="${ref}">Back</a>

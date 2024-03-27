@@ -97,6 +97,8 @@ public class BrandController {
     @RequestMapping("/edit/{id}")
     public String Edit(@PathVariable Integer id, Model model) {
         Brand brand = em.find(Brand.class, id);
+        List<Product> brandProducts = em.createQuery("SELECT product FROM Brand brand join brand.products product WHERE brand.id = :id", Product.class).setParameter("id", id).getResultList();
+        model.addAttribute("brandProducts", brandProducts);
         model.addAttribute("brand", brand);
         model.addAttribute("ref", Util.getRef("/brands"));
         return "brand/edit";
@@ -105,6 +107,8 @@ public class BrandController {
     @RequestMapping(value="/edit", method=RequestMethod.POST)
     public String Update(@ModelAttribute("brand") Brand brand, BindingResult result, Model model) { 
         if (result.hasErrors()) {
+            List<Product> brandProducts = em.createQuery("SELECT product FROM Brand brand join brand.products product WHERE brand.id = :id", Product.class).setParameter("id", brand.getId()).getResultList();
+            model.addAttribute("brandProducts", brandProducts);
             model.addAttribute("ref", Util.getRef("/brands"));
             return "brand/edit";
         }
@@ -117,6 +121,8 @@ public class BrandController {
     @RequestMapping("/delete/{id}")
     public String Delete(@PathVariable Integer id, Model model) {
         Brand brand = em.find(Brand.class, id);
+        List<Product> brandProducts = em.createQuery("SELECT product FROM Brand brand join brand.products product WHERE brand.id = :id", Product.class).setParameter("id", id).getResultList();
+        model.addAttribute("brandProducts", brandProducts);
         model.addAttribute("brand", brand);
         model.addAttribute("ref", Util.getRef("/brands"));
         return "brand/delete";

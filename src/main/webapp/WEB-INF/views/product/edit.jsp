@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group col-md-6 col-lg-4">
                                 <label for="product_image">Image</label>
-                                <input type="file" id="product_image" name="imageFile" class="form-control form-control-sm" maxlength="50" />
+                                <input type="file" accept="image/*" id="product_image" name="imageFile" class="form-control form-control-sm" maxlength="50" />
                                 <a href="${pageContext.request.contextPath}/uploads/products/${product.image}" target="_blank" title="${product.image}"><img class="img-item" src="${pageContext.request.contextPath}/uploads/products/${product.image}" /></a>
                                 <f:errors path="image" cssClass="text-danger" />
                             </div>

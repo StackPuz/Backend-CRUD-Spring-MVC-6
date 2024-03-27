@@ -19,6 +19,33 @@
                                 <f:errors path="name" cssClass="text-danger" />
                             </div>
                             <div class="col-12">
+                                <h6>Brand's products</h6>
+                                <table class="table table-sm table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="brandProduct" items="${brandProducts}">
+                                            <tr>
+                                                <td>${brandProduct.name}</td>
+                                                <td class="text-right">${brandProduct.price}</td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-sm btn-secondary" href="${pageContext.request.contextPath}/products/${brandProduct.id}" title="View"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/products/edit/${brandProduct.id}" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a class="btn btn-sm btn-danger" href="${pageContext.request.contextPath}/products/delete/${brandProduct.id}" title="Delete"><i class="fa fa-times"></i></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                                <a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/products/create?product_brand_id=${brand.id}">Add</a>
+                                <hr />
+                            </div>
+                            <div class="col-12">
                                 <a class="btn btn-sm btn-secondary" href="${ref}">Cancel</a>
                                 <button class="btn btn-sm btn-primary">Submit</button>
                             </div>
