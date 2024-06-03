@@ -1,5 +1,5 @@
-# Backend-CRUD-Spring-MVC-6
-Boilerplate Backend CRUD Web App created with Spring MVC 6 by [StackPuz](https://stackpuz.com).
+# Boilerplate-CRUD-Spring-MVC-6
+Boilerplate CRUD Web App created with Spring MVC 6 by [StackPuz](https://stackpuz.com).
 
 ## Demo
 Checkout the live demo at https://demo.stackpuz.com
@@ -21,7 +21,7 @@ Checkout the live demo at https://demo.stackpuz.com
 - MySQL 5.7
 
 ## Installation
-1. Clone this repository. `git clone https://github.com/stackpuz/Backend-CRUD-Spring-MVC-6.git .`
+1. Clone this repository. `git clone https://github.com/stackpuz/Boilerplate-CRUD-Spring-MVC-6.git .`
 2. Create a new database and run [/database.sql](/database.sql) script to create tables and import data.
 3. Edit the database configuration in [/src/main/webapp/WEB-INF/app-servlet.xml](/src/main/webapp/WEB-INF/app-servlet.xml) file.
     ```
